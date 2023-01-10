@@ -1,0 +1,9 @@
+.EmployeeList {
+	background-color: white;
+	padding: 0px 4vw;
+}
+
+.EmployeeList > h1 {
+	text-align: center;
+	font-weight: normal;
+}
