@@ -1,5 +1,5 @@
 // const API_ROOT = "https://13.235.31.233:3000";
-const API_ROOT = "http://localhost:5001/emps";
+const API_ROOT = "https://localhost:5001/emps";
 
 async function getAllEmployees() {
 	return fetch(`${API_ROOT}/`, {
