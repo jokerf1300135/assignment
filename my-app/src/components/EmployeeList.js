@@ -23,11 +23,11 @@ function EmployeeList() {
 		contactNo: "",
 	});
 
-	const handleValueChange = (event) => {
+	const handleValueChange = (event, isUpdateFunc) => {
 		setValues({
 			...values,
 			[event.target.name]: event.target.value,
-			empId: Number(employees[employees.length - 1].empId) + 1,
+			empId: !isUpdateFunc ? Number(employees[employees.length - 1].empId) + 1 : values.empId,
 		});
 	};
 
@@ -42,7 +42,7 @@ function EmployeeList() {
 			if (!response.error) {
 				setEmployees(response);
 			} else {
-				console.log(response.error + " in updateEmployeesList");
+				console.log(JSON.stringify(response.error) + " in updateEmployeesList");
 				alert("Server error, please try again after some time");
 			}
 		} catch (err) {
@@ -58,6 +58,7 @@ function EmployeeList() {
 
 			if (!response.error) {
 				updateEmployeesList();
+				alert(response.success);
 			} else {
 				console.log(JSON.stringify(response.error) + " in handleAddEmpSubmit");
 				alert("Server error, please try again after some time");
@@ -79,11 +80,11 @@ function EmployeeList() {
 				updateEmployeesList();
 				alert(response.success);
 			} else {
-				console.log(response.error + " in handleEditEmpSubmit");
+				console.log(JSON.stringify(response.error) + " in handleEditEmpSubmit");
 				alert("Server error, please try again after some time");
 			}
 		} catch (err) {
-			console.log(err + "in handleAddEmpSubmit");
+			console.log(err + "in handleEditEmpSubmit");
 		}
 
 		setShowEditEmp(false);
@@ -97,7 +98,7 @@ function EmployeeList() {
 				updateEmployeesList();
 				alert(response.success);
 			} else {
-				console.log("Error in updateEnrollmentList in Enrollments.js" + response.error);
+				console.log(JSON.stringify(response.error) + " in deleteEmployee");
 				alert("Server error, please try again after some time");
 			}
 		} catch (err) {

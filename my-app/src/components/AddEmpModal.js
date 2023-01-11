@@ -25,7 +25,9 @@ function AddEmpModal({
 							type="text"
 							name="firstName"
 							value={values.firstName}
-							onChange={handleValueChange}
+							onChange={(event) =>
+								handleValueChange(event, String(submitString).localeCompare("Edit") === 0)
+							}
 							placeholder="John"
 							autoFocus
 						/>
@@ -36,7 +38,9 @@ function AddEmpModal({
 							type="text"
 							name="lastName"
 							value={values.lastName}
-							onChange={handleValueChange}
+							onChange={(event) =>
+								handleValueChange(event, String(submitString).localeCompare("Edit") === 0)
+							}
 							placeholder="Doe"
 						/>
 					</Form.Group>
@@ -46,7 +50,9 @@ function AddEmpModal({
 							type="email"
 							name="emailId"
 							value={values.emailId}
-							onChange={handleValueChange}
+							onChange={(event) =>
+								handleValueChange(event, String(submitString).localeCompare("Edit") === 0)
+							}
 							placeholder="name@example.com"
 						/>
 					</Form.Group>
@@ -56,7 +62,9 @@ function AddEmpModal({
 							type="number"
 							name="contactNo"
 							value={values.contactNo}
-							onChange={handleValueChange}
+							onChange={(event) =>
+								handleValueChange(event, String(submitString).localeCompare("Edit") === 0)
+							}
 							placeholder="9999999999"
 						/>
 					</Form.Group>

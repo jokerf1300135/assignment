@@ -41,12 +41,11 @@ empRoutes.route("/:id").get(function (req, res) {
 });
 
 empRoutes.route("/add").post(function (req, res) {
-	console.log(req.body);
 	let emp = new Emp(req.body);
 	console.log(emp);
 	emp.save()
 		.then((emp) => {
-			res.status(200).json({ emp: "emp added successfully" });
+			res.status(200).json({ success: "Employee added successfully" });
 		})
 		.catch((err) => {
 			res.status(400).json({ error: err });
@@ -65,7 +64,7 @@ empRoutes.route("/update/:id").put(function (req, res) {
 
 		emp.save()
 			.then((emp) => {
-				res.json({ success: "Employee updated" });
+				res.status(200).json({ success: "Employee updated" });
 			})
 			.catch((err) => {
 				res.status(400).json({ error: err });
