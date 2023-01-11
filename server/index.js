@@ -65,10 +65,10 @@ empRoutes.route("/update/:id").put(function (req, res) {
 
 		emp.save()
 			.then((emp) => {
-				res.json("Employee updated");
+				res.json({ success: "Employee updated" });
 			})
 			.catch((err) => {
-				res.status(400).send("Update not possible");
+				res.status(400).json({ error: err });
 			});
 	});
 });

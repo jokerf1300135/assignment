@@ -42,7 +42,7 @@ function EmployeeList() {
 			if (!response.error) {
 				setEmployees(response);
 			} else {
-				console.log("Error in updateEnrollmentList in Enrollments.js");
+				console.log(response.error + " in updateEmployeesList");
 				alert("Server error, please try again after some time");
 			}
 		} catch (err) {
@@ -59,7 +59,7 @@ function EmployeeList() {
 			if (!response.error) {
 				updateEmployeesList();
 			} else {
-				console.log("Error in updateEnrollmentList in Enrollments.js");
+				console.log(JSON.stringify(response.error) + " in handleAddEmpSubmit");
 				alert("Server error, please try again after some time");
 			}
 		} catch (err) {
@@ -77,8 +77,9 @@ function EmployeeList() {
 
 			if (!response.error) {
 				updateEmployeesList();
+				alert(response.success);
 			} else {
-				console.log("Error in updateEnrollmentList in Enrollments.js");
+				console.log(response.error + " in handleEditEmpSubmit");
 				alert("Server error, please try again after some time");
 			}
 		} catch (err) {

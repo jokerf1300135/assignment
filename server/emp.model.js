@@ -9,15 +9,15 @@ let Employee = new Schema({
 		type: String,
 	},
 	empId: {
-		type: String,
+		type: Number,
+		min: 10000,
+		max: 99999,
 	},
 	emailId: {
 		type: String,
 	},
 	contactNo: {
 		type: Number,
-		min: 1000000000,
-		max: 9999999999,
 	},
 });
 
